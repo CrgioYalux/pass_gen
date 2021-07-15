@@ -2,6 +2,7 @@ import { program } from 'commander';
 import clipboardy from 'clipboardy';
 import chalk from 'chalk';
 import { createPassword } from './utils/createPassword';
+import { savePassword } from './utils/savePassword';
 
 const { log } = console;
 
@@ -29,5 +30,6 @@ const {
 const generatedPassword = createPassword(length, useNumbers, useSymbols);
 clipboardy.writeSync(generatedPassword);
 
-log(chalk.greenBright('Password Generated > ') + chalk.bold(generatedPassword));
+log(chalk.greenBright('Generated Password: ') + chalk.bold(generatedPassword));
 log(chalk.yellowBright('Copied to clipboard!'));
+save && savePassword(generatedPassword);
