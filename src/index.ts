@@ -1,4 +1,7 @@
 import { program } from 'commander';
+import clipboardy from 'clipboardy';
+import chalk from 'chalk';
+import { createPassword } from './utils/createPassword';
 
 const { log } = console;
 
@@ -16,6 +19,13 @@ const {
 	save,
 	numbers: useNumbers,
 	symbols: useSymbols,
+}: {
+	length: number;
+	save: boolean;
+	numbers: boolean;
+	symbols: boolean;
 } = program.opts();
 
-log(save, useNumbers);
+const generatedPassword = createPassword(length, useNumbers, useSymbols);
+
+log(chalk.blueBright('Password Generated: ') + chalk.bold(generatedPassword));
