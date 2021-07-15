@@ -6,7 +6,10 @@ import { savePassword } from './utils/savePassword';
 
 const { log } = console;
 
-program.version('1.0.0').description('A Simple Password Generator');
+program
+	.name('passwordgen')
+	.version('1.0.0')
+	.description('A Simple Password Generator');
 
 program
 	.option('-L, --length <number>', 'length of the password', '10')
