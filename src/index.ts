@@ -27,5 +27,7 @@ const {
 } = program.opts();
 
 const generatedPassword = createPassword(length, useNumbers, useSymbols);
+clipboardy.writeSync(generatedPassword);
 
-log(chalk.blueBright('Password Generated: ') + chalk.bold(generatedPassword));
+log(chalk.greenBright('Password Generated > ') + chalk.bold(generatedPassword));
+log(chalk.yellowBright('Copied to clipboard!'));
